@@ -56,9 +56,9 @@ public class 골드4_이분그래프_1707 {
         while (!que.isEmpty()) {
             int cur = que.poll();
             for (int a : graph.get(cur)) {
-                if (colorLst[cur] == colorLst[a]) return false;
-                if (colorLst[a] == 0) {
-                    colorLst[a] = -colorLst[cur];
+                if (colorLst[cur] == colorLst[a]) return false; // 이어져 있는 정점일 때 색깔이 같으면 이분그래프가 아님
+                if (colorLst[a] == 0) { // 아직 방문하지 않은 노드일 때
+                    colorLst[a] = -colorLst[cur]; // 다른 색깔 부여
                     que.add(a);
                 }
             }
