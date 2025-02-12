@@ -18,13 +18,13 @@ public class 골드5_회의실배정_1931 {
                 time[i][1] = Integer.parseInt(st.nextToken());
             }
 
-            Arrays.sort(time, (t1, t2) -> t1[1] != t2[1] ? t1[1] - t2[1] : t1[0] - t2[0]);
-            int endTime = time[0][1];
+            Arrays.sort(time, (t1, t2) -> t1[1] != t2[1] ? t1[1] - t2[1] : t1[0] - t2[0]); // 끝나는 시간이 빠른 순서대로 정렬 (같으면 시작 시간이 빠른 순서)
+            int endTime = time[0][1]; // 가장 먼저 끝나는 시간
             int cnt = 1;
             for (int i = 1; i < N; i++) {
-                if (endTime <= time[i][0]) {
+                if (endTime <= time[i][0]) { // 앞에가 끝나고 시작하는 회의면 선택
                     cnt++;
-                    endTime = time[i][1];
+                    endTime = time[i][1]; // 끝나는 시간 갱신하기
                 }
             }
             System.out.println(cnt);
