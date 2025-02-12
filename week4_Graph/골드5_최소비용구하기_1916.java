@@ -52,15 +52,15 @@ public class 골드5_최소비용구하기_1916 {
         }
     }
 
-    static void dijkstra() {
-        PriorityQueue<Node> que = new PriorityQueue<>();
+    static void dijkstra() { // 다익스트라를 사용해서 한 정점에서 각 정점으로의 최소비용을 구할 수 있다
+        PriorityQueue<Node> que = new PriorityQueue<>(); // 비용을 기준으로 오름차순
         que.offer(new Node(start, 0));
         while (!que.isEmpty()) {
             int cur = que.poll().dest;
             if (!visit[cur]) {
                 visit[cur] = true;
                 for (Node node : graph.get(cur)) {
-                    if (dist[node.dest] > dist[cur] + node.cost) {
+                    if (dist[node.dest] > dist[cur] + node.cost) { // node를 거쳐가는 경우가 더 비용이 작을 경우
                         dist[node.dest] = dist[cur] + node.cost;
                         que.add(new Node(node.dest, dist[node.dest]));
                     }
